@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/radiation_safety/static/css/main.165acaf1.chunk.css",
+    "main.js": "/radiation_safety/static/js/main.b2db8409.chunk.js",
+    "main.js.map": "/radiation_safety/static/js/main.b2db8409.chunk.js.map",
+    "runtime~main.js": "/radiation_safety/static/js/runtime~main.bf0edf64.js",
+    "runtime~main.js.map": "/radiation_safety/static/js/runtime~main.bf0edf64.js.map",
+    "static/js/2.00c28ab4.chunk.js": "/radiation_safety/static/js/2.00c28ab4.chunk.js",
+    "static/js/2.00c28ab4.chunk.js.map": "/radiation_safety/static/js/2.00c28ab4.chunk.js.map",
+    "static/js/3.fc5cbf83.chunk.js": "/radiation_safety/static/js/3.fc5cbf83.chunk.js",
+    "static/js/3.fc5cbf83.chunk.js.map": "/radiation_safety/static/js/3.fc5cbf83.chunk.js.map",
+    "index.html": "/radiation_safety/index.html",
+    "precache-manifest.b077425e22b04f94e59d4305a6643944.js": "/radiation_safety/precache-manifest.b077425e22b04f94e59d4305a6643944.js",
+    "service-worker.js": "/radiation_safety/service-worker.js",
+    "static/css/main.165acaf1.chunk.css.map": "/radiation_safety/static/css/main.165acaf1.chunk.css.map"
+  }
+}
