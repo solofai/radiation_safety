@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/radiation_safety/precache-manifest.b077425e22b04f94e59d4305a6643944.js"
+  "/radiation_safety/precache-manifest.3a081c94fcd68a151424db9170221be5.js"
 );
 
 self.addEventListener('message', (event) => {
