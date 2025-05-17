@@ -64,6 +64,8 @@ export default function App() {
               onClick={() => navigateToSection('home')}
             >
               <h1 className="text-2xl font-bold cursor-pointer">
+                THIS SITE IS UNDER DEVELOPMENT. Stay tuned for the official release.
+                <br />
                 Radiation Safety Training
               </h1>
               <p className="text-sm">
