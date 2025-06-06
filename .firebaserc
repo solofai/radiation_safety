@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "radiation-safety",
+    "radiation-safety": "radiation-safety"
+  },
+  "targets": {},
+  "etags": {}
+}

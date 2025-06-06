@@ -1,6 +1,7 @@
+// frontend/src/components/pages/SurveyMeterSimulation.js
 import React, { useState } from 'react';
 
-function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
+function SurveyMeterSimulation({ setActiveSimulation }) {
   const [step, setStep] = useState(1);
   const [batteryChecked, setBatteryChecked] = useState(false);
   const [audioOn, setAudioOn] = useState(false);
@@ -41,69 +42,62 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
     const allChecksCompleted = batteryChecked && audioOn && sourceChecked && backgroundChecked;
     
     return (
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-        <h3 className="text-2xl font-bold mb-6 text-center">Simulation Results</h3>
-        
-        <div className={`p-6 mb-6 rounded-lg ${allChecksCompleted ? 'bg-green-100' : 'bg-yellow-100'}`}>
-          <h4 className="text-xl font-semibold mb-4">
-            {allChecksCompleted 
-              ? 'Congratulations! You completed all pre-operational checks.' 
-              : 'Some pre-operational checks were missed.'}
-          </h4>
+      <div className="max-w-3xl mx-auto card">
+        <div className="card-body">
+          <h3 className="text-2xl font-bold mb-6 text-center">Simulation Results</h3>
           
-          <ul className="space-y-3">
-            <li className="flex items-center">
-              <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${batteryChecked ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
-                {batteryChecked ? '✓' : '✗'}
-              </span>
-              Battery Check
-            </li>
-            <li className="flex items-center">
-              <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${audioOn ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
-                {audioOn ? '✓' : '✗'}
-              </span>
-              Audio Turned On
-            </li>
-            <li className="flex items-center">
-              <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${sourceChecked ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
-                {sourceChecked ? '✓' : '✗'}
-              </span>
-              Source Check
-            </li>
-            <li className="flex items-center">
-              <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${backgroundChecked ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
-                {backgroundChecked ? '✓' : '✗'}
-              </span>
-              Background Check
-            </li>
-          </ul>
-        </div>
-        
-        <div className="flex justify-center space-x-4">
-          <button 
-            onClick={resetSimulation}
-            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-          >
-            Try Again
-          </button>
-          <button 
-            onClick={() => {
-              console.log("Exiting simulation");
-              setActiveSimulation(null);
-            }}
-            className="px-6 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
-          >
-            Exit Simulation
-          </button>
-          <button 
-            onClick={() => {
-              console.log("Returning to home");
-              navigateToSection('home');
-            }}
-            className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
-          >
-            Back to Home
-          </button>
+          <div className={`p-6 mb-6 rounded-lg ${allChecksCompleted ? 'bg-green-100' : 'bg-yellow-100'}`}>
+            <h4 className="text-xl font-semibold mb-4">
+              {allChecksCompleted 
+                ? 'Congratulations! You completed all pre-operational checks.' 
+                : 'Some pre-operational checks were missed.'}
+            </h4>
+            
+            <ul className="space-y-3">
+              <li className="flex items-center">
+                <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${batteryChecked ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+                  {batteryChecked ? '✓' : '✗'}
+                </span>
+                Battery Check
+              </li>
+              <li className="flex items-center">
+                <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${audioOn ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+                  {audioOn ? '✓' : '✗'}
+                </span>
+                Audio Turned On
+              </li>
+              <li className="flex items-center">
+                <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${sourceChecked ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+                  {sourceChecked ? '✓' : '✗'}
+                </span>
+                Source Check
+              </li>
+              <li className="flex items-center">
+                <span className={`inline-block w-6 h-6 rounded-full mr-3 flex items-center justify-center ${backgroundChecked ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+                  {backgroundChecked ? '✓' : '✗'}
+                </span>
+                Background Check
+              </li>
+            </ul>
+          </div>
+          
+          <div className="flex justify-center gap-4">
+            <button 
+              onClick={resetSimulation}
+              className="btn btn-primary"
+            >
+              Try Again
+            </button>
+            <button 
+              onClick={() => {
+                console.log("Exiting simulation");
+                setActiveSimulation(null);
+              }}
+              className="btn btn-secondary"
+            >
+              Exit Simulation
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -122,11 +116,11 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
             <p className="mb-4">
               In this simulation, you will practice the proper sequence for checking and operating a Geiger-Mueller detector before use in a radiation area.
             </p>
-            <div className="bg-blue-100 p-4 rounded">
-              <p className="font-medium text-blue-800">
+            <div className="alert alert-info">
+              <p className="font-medium">
                 Pre-operational checks should always be performed in the following sequence:
               </p>
-              <ol className="list-decimal ml-6 mt-2 text-blue-800">
+              <ol className="list-decimal ml-6 mt-2">
                 <li>Check the calibration sticker and battery</li>
                 <li>Turn on the audio</li>
                 <li>Perform a source check</li>
@@ -145,8 +139,8 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
             <p className="mb-4">
               Next, check the battery indicator to ensure there is sufficient power for operation.
             </p>
-            <div className="bg-yellow-100 p-4 rounded mb-6">
-              <p className="font-medium text-yellow-800">
+            <div className="alert alert-warning mb-6">
+              <p className="font-medium">
                 Note: If the batteries have expired, replace them. An occasional check during the day's activities will identify if the instrument is still operational.
               </p>
             </div>
@@ -156,8 +150,8 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
                   console.log("Battery check button clicked");
                   setBatteryChecked(true);
                 }}
-                className={`px-4 py-2 rounded transition ${
-                  batteryChecked ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-300'
+                className={`btn ${
+                  batteryChecked ? 'btn-primary bg-green-600 hover:bg-green-700' : 'btn-secondary'
                 }`}
               >
                 {batteryChecked ? '✓ Battery Checked' : 'Check Battery'}
@@ -165,7 +159,6 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
             </div>
           </div>
         );
-      // Add cases 3, 4, and 5 similar to above
       case 3:
         return (
           <div>
@@ -182,8 +175,8 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
                   console.log("Audio button clicked");
                   setAudioOn(true);
                 }}
-                className={`px-4 py-2 rounded transition ${
-                  audioOn ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-300'
+                className={`btn ${
+                  audioOn ? 'btn-primary bg-green-600 hover:bg-green-700' : 'btn-secondary'
                 }`}
               >
                 {audioOn ? '✓ Audio Turned On' : 'Turn On Audio'}
@@ -207,8 +200,8 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
                   console.log("Source check button clicked");
                   setSourceChecked(true);
                 }}
-                className={`px-4 py-2 rounded transition ${
-                  sourceChecked ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-300'
+                className={`btn ${
+                  sourceChecked ? 'btn-primary bg-green-600 hover:bg-green-700' : 'btn-secondary'
                 }`}
               >
                 {sourceChecked ? '✓ Source Check Completed' : 'Perform Source Check'}
@@ -232,8 +225,8 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
                   console.log("Background check button clicked");
                   setBackgroundChecked(true);
                 }}
-                className={`px-4 py-2 rounded transition ${
-                  backgroundChecked ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-300'
+                className={`btn ${
+                  backgroundChecked ? 'btn-primary bg-green-600 hover:bg-green-700' : 'btn-secondary'
                 }`}
               >
                 {backgroundChecked ? '✓ Background Check Completed' : 'Check Background Level'}
@@ -248,18 +241,7 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
   
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="text-2xl font-bold">Radiation Survey Meter Operation</h3>
-        <button 
-          onClick={() => {
-            console.log("Returning to simulations list");
-            setActiveSimulation(null);
-          }}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-        >
-          Back to Simulations
-        </button>
-      </div>
+      <h3 className="text-2xl font-bold mb-6">Radiation Survey Meter Operation</h3>
       
       {/* Progress indicator */}
       <div className="mb-8">
@@ -279,27 +261,29 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
             </div>
           ))}
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="progress-bar">
           <div
-            className="bg-blue-600 h-2 rounded-full"
+            className="progress-bar-fill"
             style={{ width: `${(step / totalSteps) * 100}%` }}
           ></div>
         </div>
       </div>
       
       {/* Simulation content */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        {stepContent()}
+      <div className="card mb-6">
+        <div className="card-body">
+          {stepContent()}
+        </div>
       </div>
       
       {/* Navigation buttons */}
       <div className="flex justify-between">
         <button
           onClick={handlePrevious}
-          className={`px-4 py-2 rounded ${
+          className={`btn ${
             step === 1
-              ? 'bg-gray-200 cursor-not-allowed'
-              : 'bg-gray-600 text-white hover:bg-gray-700'
+              ? 'btn-secondary cursor-not-allowed opacity-50'
+              : 'btn-secondary'
           }`}
           disabled={step === 1}
         >
@@ -307,7 +291,7 @@ function SurveyMeterSimulation({ setActiveSimulation, navigateToSection }) {
         </button>
         <button
           onClick={handleNext}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="btn btn-primary"
         >
           {step === totalSteps ? 'Complete' : 'Next'}
         </button>

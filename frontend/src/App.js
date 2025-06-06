@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './styles/App.css';
+import './styles/globals.css';
 import { BookOpen, ClipboardCheck, Beaker, FileQuestion, Menu, X } from 'lucide-react';
 
 // Import common components
